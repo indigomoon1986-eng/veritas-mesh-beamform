@@ -1,0 +1,13 @@
+[Unit]
+Description=Veritas Mesh beamform controller
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/veritas-mesh-beamform
+ExecStart=/opt/veritas-mesh-beamform/.venv/bin/python -m app.web
+Restart=on-failure
+User=veritas
+
+[Install]
+WantedBy=multi-user.target

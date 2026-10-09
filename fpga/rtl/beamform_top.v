@@ -1,10 +1,6 @@
-// SPI register file, shared NCO, 4-channel precoder, timed DAC strobe.
-// 0x00 control bit0 rst bit1 enable
-// 0x04 freq_word
-// 0x10+8i w_re   0x14+8i w_im
-// 0x40 measured phase ch0
+// 0x00 control, 0x04 freq_word, 0x10+8i weights.
 module beamform_top (
-    input  wire clk, input wire rst_n, input wire sclk, input wire cs_n, input wire mosi, output wire miso,
+    input wire clk, input wire rst_n, input wire sclk, input wire cs_n, input wire mosi, output wire miso,
     output wire signed [15:0] dac0, output wire signed [15:0] dac1,
     output wire signed [15:0] dac2, output wire signed [15:0] dac3, output wire dac_strobe
 );
